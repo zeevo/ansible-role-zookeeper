@@ -1,0 +1,14 @@
+zookeeper_name: zookeeper
+zookeeper_user: zookeeper
+zookeeper_group: zookeeper
+zookeeper_home_dir: ~/zookeeper
+zookeeper_network: zookeeper
+zookeeper_image: bitnami/zookeeper:3.9.1
+zookeeper_log_level: INFO
+zookeeper_data_dir: "{{ zookeeper_home_dir }}/data"
+zookeeper_docker_compose: "{{ zookeeper_home_dir }}/docker-compose.yml"
+zookeeper_ports:
+  - "2181:2181"
+  - "2888:2888"
+  - "3888:3888"
+  - "8080:8080"

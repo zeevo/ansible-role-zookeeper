@@ -1,0 +1,20 @@
+services:
+
+  {{ zookeeper_name }}:
+    image: {{ zookeeper_image }}
+    networks:
+      - zookeeper_network
+{% if zookeeper_ports | length > 0 %}
+    ports:
+{% for port in zookeeper_ports %}
+      - {{ port }}
+{% endfor %}
+{% endif %}
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: yes
+      ZOO_LOG_LEVEL: {{ zookeeper_log_level }}
+
+networks:
+  zookeeper_network:
+    name: {{ zookeeper_network }}
+    external: true
