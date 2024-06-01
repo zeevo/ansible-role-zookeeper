@@ -2,6 +2,7 @@ services:
 
   {{ zookeeper_name }}:
     image: {{ zookeeper_image }}
+    hostname: {{ zookeeper_hostname }}
     networks:
       - zookeeper_network
 {% if zookeeper_ports | length > 0 %}
@@ -13,6 +14,10 @@ services:
     environment:
       ALLOW_ANONYMOUS_LOGIN: yes
       ZOO_LOG_LEVEL: {{ zookeeper_log_level }}
+      ZOO_SERVER_ID: {{ zookeeper_server_id }}
+{% if zookeeper_servers | length > 0 %}
+      ZOO_SERVERS: {{ zookeeper_servers | join(" ") }}
+{% endif %}
 
 networks:
   zookeeper_network:
