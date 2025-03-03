@@ -8,6 +8,10 @@
     name: "{{ zookeeper_user }}"
     group: "{{ zookeeper_group }}"
 
+- name: Docker
+  include_tasks:
+    file: docker.yml
+
 - name: Add zookeeper user to docker group
   shell: usermod -aG docker {{ zookeeper_user }}
   become: true

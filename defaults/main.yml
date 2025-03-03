@@ -2,7 +2,7 @@ zookeeper_name: zookeeper
 zookeeper_hostname: "{{ zookeeper_name }}"
 zookeeper_user: zookeeper
 zookeeper_group: zookeeper
-zookeeper_home_dir: ~/zookeeper
+zookeeper_home_dir: /home/zookeeper
 zookeeper_network: zookeeper
 zookeeper_image: bitnami/zookeeper:3.9.2
 zookeeper_log_level: INFO
